@@ -100,6 +100,54 @@
     <Compile Include="frmMauCRUD.Designer.cs">
       <DependentUpon>frmMauCRUD.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmQuanLySach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanLySach.Designer.cs">
+      <DependentUpon>frmQuanLySach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanLyDocGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanLyDocGia.Designer.cs">
+      <DependentUpon>frmQuanLyDocGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanLyTheLoai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanLyTheLoai.Designer.cs">
+      <DependentUpon>frmQuanLyTheLoai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanLyNhaXuatBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanLyNhaXuatBan.Designer.cs">
+      <DependentUpon>frmQuanLyNhaXuatBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLapPhieuMuon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLapPhieuMuon.Designer.cs">
+      <DependentUpon>frmLapPhieuMuon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTraSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTraSach.Designer.cs">
+      <DependentUpon>frmTraSach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDatTruoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDatTruoc.Designer.cs">
+      <DependentUpon>frmDatTruoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanLyPhat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanLyPhat.Designer.cs">
+      <DependentUpon>frmQuanLyPhat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\CurrentUser.cs" />
     <Compile Include="Helpers\PhanQuyenHelper.cs" />
     <Compile Include="Helpers\SecurityHelper.cs" />
@@ -115,6 +163,11 @@
     <Compile Include="Repositories\NguoiDungRepository.cs" />
     <Compile Include="Repositories\PhieuMuonRepository.cs" />
     <Compile Include="Repositories\SachRepository.cs" />
+    <Compile Include="Repositories\DatTruocRepository.cs" />
+    <Compile Include="Repositories\NhaXuatBanRepository.cs" />
+    <Compile Include="Repositories\PhatRepository.cs" />
+    <Compile Include="Repositories\TheLoaiRepository.cs" />
+    <Compile Include="Repositories\ViewModels.cs" />
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -123,6 +176,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMauCRUD.resx">
       <DependentUpon>frmMauCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLySach.resx">
+      <DependentUpon>frmQuanLySach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLyDocGia.resx">
+      <DependentUpon>frmQuanLyDocGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLyTheLoai.resx">
+      <DependentUpon>frmQuanLyTheLoai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLyNhaXuatBan.resx">
+      <DependentUpon>frmQuanLyNhaXuatBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLapPhieuMuon.resx">
+      <DependentUpon>frmLapPhieuMuon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTraSach.resx">
+      <DependentUpon>frmTraSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDatTruoc.resx">
+      <DependentUpon>frmDatTruoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLyPhat.resx">
+      <DependentUpon>frmQuanLyPhat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
