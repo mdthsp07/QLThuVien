@@ -14,5 +14,11 @@ namespace QLThuVien.Repositories
         {
             return db.Saches.FirstOrDefault(s => s.MaSach == maSach);
         }
+        public Dictionary<string, int> GetThongKeSachTheoTheLoai()
+        {
+            return db.Saches
+                .GroupBy(s => s.TheLoai.TenTheLoai)
+                .ToDictionary(g => g.Key, g => g.Count());
+        }
     }
 }
