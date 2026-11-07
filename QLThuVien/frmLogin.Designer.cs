@@ -34,8 +34,9 @@
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnConfig = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -77,7 +78,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(120, 316);
+            this.btnLogin.Location = new System.Drawing.Point(120, 276);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(139, 35);
             this.btnLogin.TabIndex = 4;
@@ -87,6 +88,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnConfig);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
@@ -99,6 +101,17 @@
             this.panel1.Size = new System.Drawing.Size(385, 450);
             this.panel1.TabIndex = 5;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Showcard Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.label3.Location = new System.Drawing.Point(139, 109);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(137, 50);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "LOGIN";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -110,16 +123,15 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label3
+            // btnConfig
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Showcard Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.label3.Location = new System.Drawing.Point(139, 109);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 50);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "LOGIN";
+            this.btnConfig.Location = new System.Drawing.Point(250, 424);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Size = new System.Drawing.Size(129, 23);
+            this.btnConfig.TabIndex = 6;
+            this.btnConfig.Text = "Cấu hình CSDL";
+            this.btnConfig.UseVisualStyleBackColor = true;
+            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
             // 
             // frmLogin
             // 
@@ -150,5 +162,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnConfig;
     }
 }

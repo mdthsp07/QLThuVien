@@ -21,44 +21,65 @@ namespace QLThuVien
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label lblTenDangNhap = new System.Windows.Forms.Label();
-            System.Windows.Forms.Label lblHoTen = new System.Windows.Forms.Label();
-            System.Windows.Forms.Label lblVaiTro = new System.Windows.Forms.Label();
+            this.lblTenDangNhap = new System.Windows.Forms.Label();
+            this.lblHoTen = new System.Windows.Forms.Label();
+            this.lblVaiTro = new System.Windows.Forms.Label();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.txtTenDangNhap = new System.Windows.Forms.TextBox();
             this.txtHoTen = new System.Windows.Forms.TextBox();
             this.cboVaiTro = new System.Windows.Forms.ComboBox();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnResetPassword = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTenDangNhap
             // 
-            lblTenDangNhap.AutoSize = true;
-            lblTenDangNhap.Location = new System.Drawing.Point(15, 18);
-            lblTenDangNhap.Name = "lblTenDangNhap";
-            lblTenDangNhap.Size = new System.Drawing.Size(98, 16);
-            lblTenDangNhap.TabIndex = 0;
-            lblTenDangNhap.Text = "Tên đăng nhập:";
+            this.lblTenDangNhap.AutoSize = true;
+            this.lblTenDangNhap.Location = new System.Drawing.Point(15, 18);
+            this.lblTenDangNhap.Name = "lblTenDangNhap";
+            this.lblTenDangNhap.Size = new System.Drawing.Size(101, 16);
+            this.lblTenDangNhap.TabIndex = 0;
+            this.lblTenDangNhap.Text = "Tên đăng nhập:";
             // 
             // lblHoTen
             // 
-            lblHoTen.AutoSize = true;
-            lblHoTen.Location = new System.Drawing.Point(285, 18);
-            lblHoTen.Name = "lblHoTen";
-            lblHoTen.Size = new System.Drawing.Size(48, 16);
-            lblHoTen.TabIndex = 1;
-            lblHoTen.Text = "Họ tên:";
+            this.lblHoTen.AutoSize = true;
+            this.lblHoTen.Location = new System.Drawing.Point(285, 18);
+            this.lblHoTen.Name = "lblHoTen";
+            this.lblHoTen.Size = new System.Drawing.Size(49, 16);
+            this.lblHoTen.TabIndex = 1;
+            this.lblHoTen.Text = "Họ tên:";
             // 
             // lblVaiTro
             // 
-            lblVaiTro.AutoSize = true;
-            lblVaiTro.Location = new System.Drawing.Point(535, 18);
-            lblVaiTro.Name = "lblVaiTro";
-            lblVaiTro.Size = new System.Drawing.Size(48, 16);
-            lblVaiTro.TabIndex = 2;
-            lblVaiTro.Text = "Vai trò:";
+            this.lblVaiTro.AutoSize = true;
+            this.lblVaiTro.Location = new System.Drawing.Point(535, 18);
+            this.lblVaiTro.Name = "lblVaiTro";
+            this.lblVaiTro.Size = new System.Drawing.Size(48, 16);
+            this.lblVaiTro.TabIndex = 2;
+            this.lblVaiTro.Text = "Vai trò:";
+            // 
+            // dgvUsers
+            // 
+            this.dgvUsers.AllowUserToAddRows = false;
+            this.dgvUsers.AllowUserToDeleteRows = false;
+            this.dgvUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsers.Location = new System.Drawing.Point(15, 125);
+            this.dgvUsers.MultiSelect = false;
+            this.dgvUsers.Name = "dgvUsers";
+            this.dgvUsers.ReadOnly = true;
+            this.dgvUsers.RowHeadersWidth = 51;
+            this.dgvUsers.RowTemplate.Height = 24;
+            this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUsers.Size = new System.Drawing.Size(750, 315);
+            this.dgvUsers.TabIndex = 8;
             // 
             // txtTenDangNhap
             // 
@@ -103,32 +124,36 @@ namespace QLThuVien
             this.btnResetPassword.UseVisualStyleBackColor = true;
             this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
             // 
-            // dgvUsers
+            // btnXoa
             // 
-            this.dgvUsers.AllowUserToAddRows = false;
-            this.dgvUsers.AllowUserToDeleteRows = false;
-            this.dgvUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsers.Location = new System.Drawing.Point(15, 125);
-            this.dgvUsers.MultiSelect = false;
-            this.dgvUsers.Name = "dgvUsers";
-            this.dgvUsers.ReadOnly = true;
-            this.dgvUsers.RowHeadersWidth = 51;
-            this.dgvUsers.RowTemplate.Height = 24;
-            this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsers.Size = new System.Drawing.Size(750, 315);
-            this.dgvUsers.TabIndex = 8;
+            this.btnXoa.Location = new System.Drawing.Point(336, 86);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(123, 23);
+            this.btnXoa.TabIndex = 9;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // btnSua
+            // 
+            this.btnSua.Location = new System.Drawing.Point(483, 87);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(123, 23);
+            this.btnSua.TabIndex = 10;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // frmUserManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 460);
-            this.Controls.Add(lblTenDangNhap);
-            this.Controls.Add(lblHoTen);
-            this.Controls.Add(lblVaiTro);
+            this.Controls.Add(this.btnSua);
+            this.Controls.Add(this.btnXoa);
+            this.Controls.Add(this.lblTenDangNhap);
+            this.Controls.Add(this.lblHoTen);
+            this.Controls.Add(this.lblVaiTro);
             this.Controls.Add(this.txtTenDangNhap);
             this.Controls.Add(this.txtHoTen);
             this.Controls.Add(this.cboVaiTro);
@@ -142,6 +167,13 @@ namespace QLThuVien
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
+
+        private System.Windows.Forms.Label lblTenDangNhap;
+        private System.Windows.Forms.Label lblHoTen;
+        private System.Windows.Forms.Label lblVaiTro;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button btnSua;
     }
 }

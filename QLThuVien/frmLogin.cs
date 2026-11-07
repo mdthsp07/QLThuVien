@@ -10,6 +10,7 @@ namespace QLThuVien
         public frmLogin()
         {
             InitializeComponent();
+            this.AcceptButton = btnLogin;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -32,8 +33,8 @@ namespace QLThuVien
             NguoiDungRepository repo = new NguoiDungRepository();
             NguoiDung user = repo.GetByTenDangNhap(username);
 
-           
-            if (user != null && SecurityHelper.HashPassword(password, user) == user.MatKhau)
+
+            if (user != null && string.Equals(SecurityHelper.HashPassword(password, user), user.MatKhau, StringComparison.OrdinalIgnoreCase))
             {
                
                 CurrentUser.MaND = user.MaND;
@@ -61,6 +62,12 @@ namespace QLThuVien
         private void txtMatKhau_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+            frmConnectionConfig frm = new frmConnectionConfig();
+            frm.ShowDialog();
         }
     }
 }

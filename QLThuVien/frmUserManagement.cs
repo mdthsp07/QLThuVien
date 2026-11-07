@@ -68,6 +68,8 @@ namespace QLThuVien
                 HoTen = fullName,
                 MaVaiTro = Convert.ToInt32(cboVaiTro.SelectedValue)
             };
+
+            
             user.MatKhau = SecurityHelper.HashPassword("123456", user);
 
             try
@@ -100,6 +102,11 @@ namespace QLThuVien
                 return;
             }
 
+            if (MessageBox.Show($"Bạn có chắc muốn đặt lại mật khẩu của '{user.TenDangNhap}' về 123456?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+            {
+                return;
+            }
+
             user.MatKhau = SecurityHelper.HashPassword("123456", user);
 
             try
@@ -111,6 +118,71 @@ namespace QLThuVien
             catch (Exception ex)
             {
                 MessageBox.Show("Không thể đặt lại mật khẩu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (dgvUsers.CurrentRow == null) return;
+
+            int userId = Convert.ToInt32(dgvUsers.CurrentRow.Cells["MaND"].Value);
+            string username = dgvUsers.CurrentRow.Cells["TenDangNhap"].Value.ToString();
+
+            // Chặn tự xóa chính mình
+            if (userId == CurrentUser.MaND)
+            {
+                MessageBox.Show("Bạn không thể xóa tài khoản đang đăng nhập!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (MessageBox.Show($"Bạn có chắc muốn xóa tài khoản '{username}'?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    NguoiDung user = userRepository.GetAll().FirstOrDefault(u => u.MaND == userId);
+                    if (user != null)
+                    {
+                        userRepository.Delete(user);
+                        LoadUsers();
+                        MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Không thể xóa tài khoản này vì đã có dữ liệu liên quan (Phiếu mượn...).\nChi tiết: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (dgvUsers.CurrentRow == null) return;
+
+            int userId = Convert.ToInt32(dgvUsers.CurrentRow.Cells["MaND"].Value);
+
+            if (userId == CurrentUser.MaND)
+            {
+                MessageBox.Show("Bạn không thể tự sửa vai trò của chính mình!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            NguoiDung user = userRepository.GetAll().FirstOrDefault(u => u.MaND == userId);
+
+            if (user != null)
+            {
+                user.HoTen = txtHoTen.Text.Trim();
+                user.MaVaiTro = Convert.ToInt32(cboVaiTro.SelectedValue);
+
+                try
+                {
+                    userRepository.Update(user);
+                    LoadUsers();
+                    MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi cập nhật: " + ex.Message);
+                }
             }
         }
     }

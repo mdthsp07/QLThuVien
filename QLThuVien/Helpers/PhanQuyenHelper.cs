@@ -14,7 +14,7 @@ namespace QLThuVien.Helpers
             {
                 var query = from pq in db.PhanQuyens
                             join cn in db.ChucNangs on pq.MaChucNang equals cn.MaChucNang
-                            where pq.MaVaiTro == maVaiTro && cn.TenChucNang == tenChucNang
+                            where pq.MaVaiTro == maVaiTro && cn.TenChucNang.Trim().ToLower() == tenChucNang.Trim().ToLower()
                             select pq;
                 return query.Any();
             }

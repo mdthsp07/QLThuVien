@@ -79,5 +79,44 @@ namespace QLThuVien
                 MessageBox.Show("Lỗi in báo cáo: " + loiChiTiet, "Lỗi");
             }
         }
+
+        private void btnXuatPDF_Click(object sender, EventArgs e)
+        {
+            try
+            {
+              
+                if (reportViewerPhieuMuon.LocalReport.GetDataSourceNames().Count == 0)
+                {
+                    MessageBox.Show("Vui lòng bấm 'In Báo Cáo' để tải dữ liệu trước khi xuất PDF!", "Thông báo");
+                    return;
+                }
+
+             
+                Warning[] warnings;
+                string[] streamids;
+                string mimeType = string.Empty;
+                string encoding = string.Empty;
+                string extension = string.Empty;
+
+               
+                byte[] bytes = reportViewerPhieuMuon.LocalReport.Render("PDF", null, out mimeType, out encoding, out extension, out streamids, out warnings);
+
+               
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "PDF files (*.pdf)|*.pdf";
+                sfd.FileName = "HoaDonMuonSach_" + txtMaPhieu.Text + ".pdf";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                  
+                    System.IO.File.WriteAllBytes(sfd.FileName, bytes);
+                    MessageBox.Show("Xuất file PDF thành công!\nĐường dẫn: " + sfd.FileName, "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi xuất file PDF: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

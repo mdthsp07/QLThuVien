@@ -30,9 +30,10 @@
         {
             this.reportViewerPhieuMuon = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtMaPhieu = new System.Windows.Forms.TextBox();
             this.btnIn = new System.Windows.Forms.Button();
+            this.txtMaPhieu = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnXuatPDF = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +51,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnXuatPDF);
             this.panel1.Controls.Add(this.btnIn);
             this.panel1.Controls.Add(this.txtMaPhieu);
             this.panel1.Controls.Add(this.label1);
@@ -58,6 +60,23 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 64);
             this.panel1.TabIndex = 1;
+            // 
+            // btnIn
+            // 
+            this.btnIn.Location = new System.Drawing.Point(515, 21);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(133, 23);
+            this.btnIn.TabIndex = 4;
+            this.btnIn.Text = "In Báo Cáo";
+            this.btnIn.UseVisualStyleBackColor = true;
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
+            // 
+            // txtMaPhieu
+            // 
+            this.txtMaPhieu.Location = new System.Drawing.Point(185, 22);
+            this.txtMaPhieu.Name = "txtMaPhieu";
+            this.txtMaPhieu.Size = new System.Drawing.Size(324, 22);
+            this.txtMaPhieu.TabIndex = 3;
             // 
             // label1
             // 
@@ -70,22 +89,16 @@
             this.label1.Text = "Nhập Mã Phiếu:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // txtMaPhieu
+            // btnXuatPDF
             // 
-            this.txtMaPhieu.Location = new System.Drawing.Point(185, 22);
-            this.txtMaPhieu.Name = "txtMaPhieu";
-            this.txtMaPhieu.Size = new System.Drawing.Size(440, 22);
-            this.txtMaPhieu.TabIndex = 3;
-            // 
-            // btnIn
-            // 
-            this.btnIn.Location = new System.Drawing.Point(644, 23);
-            this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(133, 23);
-            this.btnIn.TabIndex = 4;
-            this.btnIn.Text = "In Báo Cáo";
-            this.btnIn.UseVisualStyleBackColor = true;
-            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
+            this.btnXuatPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXuatPDF.Location = new System.Drawing.Point(654, 23);
+            this.btnXuatPDF.Name = "btnXuatPDF";
+            this.btnXuatPDF.Size = new System.Drawing.Size(126, 23);
+            this.btnXuatPDF.TabIndex = 2;
+            this.btnXuatPDF.Text = "Xuất PDF";
+            this.btnXuatPDF.UseVisualStyleBackColor = true;
+            this.btnXuatPDF.Click += new System.EventHandler(this.btnXuatPDF_Click);
             // 
             // frmReportPhieuMuon
             // 
@@ -110,5 +123,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnIn;
         private System.Windows.Forms.TextBox txtMaPhieu;
+        private System.Windows.Forms.Button btnXuatPDF;
     }
 }

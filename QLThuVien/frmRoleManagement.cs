@@ -1,10 +1,11 @@
+using QLThuVien.Helpers;
+using QLThuVien.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Transactions;
 using System.Windows.Forms;
-using QLThuVien.Repositories;
 
 namespace QLThuVien
 {
@@ -71,6 +72,20 @@ namespace QLThuVien
                 if (function != null)
                 {
                     selectedFunctionIds.Add(function.MaChucNang);
+                }
+            }
+
+            if (selectedRole.MaVaiTro == CurrentUser.MaVaiTro)
+            {
+                // Giả sử Mã Chức Năng 5 là "Quản lý Tài khoản" trong Database của bạn
+                // (Bạn hãy mở SQL ra xem lại bảng ChucNang để chắc chắn mã 5 là Quản lý Tài khoản nhé)
+                bool isAccountMgmtChecked = selectedFunctionIds.Contains(5);
+
+                if (!isAccountMgmtChecked)
+                {
+                    MessageBox.Show("Bạn không thể tự xóa quyền 'Quản lý Tài khoản' của chính mình!\nHãy nhờ một Admin khác thực hiện việc này.",
+                                    "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
             }
 

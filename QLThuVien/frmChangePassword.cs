@@ -26,6 +26,12 @@ namespace QLThuVien
                 return;
             }
 
+            if (txtMatKhauMoi.Text.Length < 6)
+            {
+                MessageBox.Show("Mật khẩu mới phải có ít nhất 6 ký tự!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             NguoiDungRepository userRepo = new NguoiDungRepository();
             NguoiDung user = userRepo.GetByTenDangNhap(CurrentUser.TenDangNhap);
             if (user == null || SecurityHelper.HashPassword(txtMatKhauCu.Text, user) != user.MatKhau)

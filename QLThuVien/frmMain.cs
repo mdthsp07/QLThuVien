@@ -106,11 +106,11 @@ namespace QLThuVien
 
         private void menuDangXuat_Click(object sender, EventArgs e)
         {
-            CurrentUser.Clear();
-            this.Hide();
-            frmLogin login = new frmLogin();
-            login.ShowDialog();
-            this.Close();
+            if (MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                CurrentUser.Clear();
+                Application.Restart();
+            }
         }
 
         private void menuQuanLyNguoiDung_Click(object sender, EventArgs e)

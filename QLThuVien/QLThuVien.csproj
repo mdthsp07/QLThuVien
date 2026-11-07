@@ -116,6 +116,12 @@
     <Compile Include="frmChartDashboard.Designer.cs">
       <DependentUpon>frmChartDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConnectionConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConnectionConfig.Designer.cs">
+      <DependentUpon>frmConnectionConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +236,9 @@
     <EmbeddedResource Include="frmChartDashboard.resx">
       <DependentUpon>frmChartDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmConnectionConfig.resx">
+      <DependentUpon>frmConnectionConfig.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReportPhieuMuon.resx">
       <DependentUpon>frmReportPhieuMuon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUserManagement.resx">
+      <DependentUpon>frmUserManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -315,13 +327,7 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="QLThuVien.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="QLThuVien_log.ldf">
-      <DependentUpon>QLThuVien.mdf</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Database\QLThuVien.sql" />
     <None Include="Resources\pexels-rickyesquivel-1907785.jpg" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
