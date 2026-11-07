@@ -55,11 +55,12 @@ namespace QLThuVien
                     }
                 }
 
-                
-                
+
+
+                var dataTongSach = new SachRepository().GetTongSoLuongSachTheoTheLoai();
+
                 chartTron.Series[0].Points.Clear();
-                
-                foreach (var item in data)
+                foreach (var item in dataTongSach)
                 {
                     chartTron.Series[0].Points.AddXY(item.Key, item.Value);
                 }

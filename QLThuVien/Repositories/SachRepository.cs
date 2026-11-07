@@ -22,6 +22,12 @@ namespace QLThuVien.Repositories
                 .ToDictionary(g => g.Key, g => g.Count());
         }
 
+        public Dictionary<string, int> GetTongSoLuongSachTheoTheLoai()
+        {
+            return db.Saches
+                .GroupBy(s => s.TheLoai.TenTheLoai)
+                .ToDictionary(g => g.Key, g => g.Sum(s => s.SoLuongCon ?? 0));
+        }
         /// <summary>Tìm sách theo tên / tác giả, lọc theo thể loại (null = tất cả).</summary>
         public List<SachView> TimKiem(string tuKhoa, int? maTheLoai)
         {

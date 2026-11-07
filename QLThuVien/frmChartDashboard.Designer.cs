@@ -73,7 +73,7 @@
             title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold);
             title3.ForeColor = System.Drawing.Color.MediumSlateBlue;
             title3.Name = "Title1";
-            title3.Text = "Thống kê số lượng sách theo thể loại";
+            title3.Text = "Số lượng đầu sách theo thể loại";
             this.chartTheLoai.Titles.Add(title3);
             this.chartTheLoai.Click += new System.EventHandler(this.chartTheLoai_Click);
             // 
@@ -120,7 +120,7 @@
             title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
             title1.ForeColor = System.Drawing.Color.Gold;
             title1.Name = "Title1";
-            title1.Text = "Tỷ lệ sách theo thể loại";
+            title1.Text = "Tỷ lệ tổng số cuốn sách theo thể loại";
             this.chartTron.Titles.Add(title1);
             // 
             // tableLayoutPanel1
