@@ -67,8 +67,9 @@
             this.chartTheLoai.Series.Add(series3);
             this.chartTheLoai.Size = new System.Drawing.Size(784, 281);
             this.chartTheLoai.TabIndex = 0;
-            this.chartTheLoai.Text = "chart1";
-            title1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.chartTheLoai.Text = "Chart";
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold);
+            title1.ForeColor = System.Drawing.Color.SteelBlue;
             title1.Name = "Title1";
             title1.Text = "Thống kê số lượng sách theo thể loại";
             this.chartTheLoai.Titles.Add(title1);

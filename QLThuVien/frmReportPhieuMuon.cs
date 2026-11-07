@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms; 
+using QLThuVien.Repositories;      
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,13 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Reporting.WinForms; 
-using QLThuVien.Repositories;      
+using QLThuVien.Helpers;
 
 namespace QLThuVien
 {
     public partial class frmReportPhieuMuon : Form
     {
+
         public frmReportPhieuMuon()
         {
             InitializeComponent();
@@ -21,22 +23,7 @@ namespace QLThuVien
 
         private void frmReportPhieuMuon_Load(object sender, EventArgs e)
         {
-            try
-            {
-                PhieuMuonRepository repo = new PhieuMuonRepository();
-                var data = repo.LayDuLieuBaoCaoPhieuMuon();
 
-                reportViewerPhieuMuon.LocalReport.DataSources.Clear();
-
-                ReportDataSource rds = new ReportDataSource("DataSet1", data);
-                reportViewerPhieuMuon.LocalReport.DataSources.Add(rds);
-
-                this.reportViewerPhieuMuon.RefreshReport();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi tải báo cáo: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -74,19 +61,22 @@ namespace QLThuVien
                 ReportDataSource rds = new ReportDataSource("DataSet1", data); 
                 reportViewerPhieuMuon.LocalReport.DataSources.Add(rds);
 
-               
+                string tenNguoiIn = CurrentUser.HoTen;
+                if (string.IsNullOrEmpty(tenNguoiIn)) tenNguoiIn = "Admin";
+
                 ReportParameter[] param = new ReportParameter[]
                 {
-            new ReportParameter("MaPhieuParam", maPhieu.ToString())
+                    new ReportParameter("NguoiInParam", tenNguoiIn)
                 };
                 reportViewerPhieuMuon.LocalReport.SetParameters(param);
 
-                
+
                 this.reportViewerPhieuMuon.RefreshReport();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi in báo cáo: " + ex.Message, "Lỗi");
+                string loiChiTiet = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+                MessageBox.Show("Lỗi in báo cáo: " + loiChiTiet, "Lỗi");
             }
         }
     }
