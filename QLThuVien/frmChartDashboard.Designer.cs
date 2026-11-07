@@ -67,7 +67,7 @@
             series3.Legend = "Legend1";
             series3.Name = "Series1";
             this.chartTheLoai.Series.Add(series3);
-            this.chartTheLoai.Size = new System.Drawing.Size(784, 281);
+            this.chartTheLoai.Size = new System.Drawing.Size(990, 334);
             this.chartTheLoai.TabIndex = 0;
             this.chartTheLoai.Text = "Chart";
             title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold);
@@ -84,14 +84,14 @@
             this.chartDuong.Dock = System.Windows.Forms.DockStyle.Fill;
             legend2.Name = "Legend1";
             this.chartDuong.Legends.Add(legend2);
-            this.chartDuong.Location = new System.Drawing.Point(3, 290);
+            this.chartDuong.Location = new System.Drawing.Point(3, 343);
             this.chartDuong.Name = "chartDuong";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series2.Legend = "Legend1";
             series2.Name = "Tổng tiền phạt (VNĐ)";
             this.chartDuong.Series.Add(series2);
-            this.chartDuong.Size = new System.Drawing.Size(389, 282);
+            this.chartDuong.Size = new System.Drawing.Size(492, 334);
             this.chartDuong.TabIndex = 1;
             this.chartDuong.Text = "chart1";
             title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -107,14 +107,14 @@
             this.chartTron.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Legend1";
             this.chartTron.Legends.Add(legend1);
-            this.chartTron.Location = new System.Drawing.Point(398, 290);
+            this.chartTron.Location = new System.Drawing.Point(501, 343);
             this.chartTron.Name = "chartTron";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartTron.Series.Add(series1);
-            this.chartTron.Size = new System.Drawing.Size(389, 282);
+            this.chartTron.Size = new System.Drawing.Size(492, 334);
             this.chartTron.TabIndex = 2;
             this.chartTron.Text = "chart1";
             title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
@@ -137,14 +137,14 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(790, 575);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(996, 680);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // frmChartDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 575);
+            this.ClientSize = new System.Drawing.Size(996, 680);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.Name = "frmChartDashboard";
