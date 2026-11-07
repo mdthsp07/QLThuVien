@@ -31,28 +31,35 @@ namespace QLThuVien
                 chartDuong.Series[0].ChartType = SeriesChartType.Line;
                 chartDuong.Series[0].Points.Clear();
 
-                chartDuong.Series[0].Name = "Số phiếu mượn";
+                chartDuong.Series[0].Name = "Tổng tiền phạt (VNĐ)";
+                chartDuong.Titles.Clear();
+                chartDuong.Titles.Add("Biểu đồ tổng tiền phạt theo tháng");
                 chartDuong.Legends[0].Enabled = false;
 
                 string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["QLThuVienConn"].ConnectionString;
                 using (var db = new QuanLyThuVienDataContext(connStr))
                 {
-                    var dataThang = db.PhieuMuons
-                        .Where(pm => pm.NgayMuon != null)
-                        .GroupBy(pm => pm.NgayMuon.Value.Month)
-                        .Select(g => new { Thang = g.Key, SoPhieu = g.Count() })
+                    var dataThang = db.Phats
+                        .Where(p => p.NgayPhat != null)
+                        .GroupBy(p => p.NgayPhat.Value.Month)
+                        .Select(g => new {
+                            Thang = g.Key,
+                            TongTien = g.Sum(p => p.SoTien) // Đã dùng hàm SUM theo yêu cầu
+                        })
                         .OrderBy(x => x.Thang)
                         .ToList();
 
                     foreach (var item in dataThang)
                     {
-                        chartDuong.Series[0].Points.AddXY("Tháng " + item.Thang, item.SoPhieu);
+                        chartDuong.Series[0].Points.AddXY("Tháng " + item.Thang, item.TongTien);
                     }
                 }
 
                 
                 chartTron.Series[0].ChartType = SeriesChartType.Pie;
                 chartTron.Series[0].Points.Clear();
+                chartTron.Titles.Clear();
+                chartTron.Titles.Add("Tỷ lệ sách theo thể loại");
                 foreach (var item in data)
                 {
                     chartTron.Series[0].Points.AddXY(item.Key, item.Value);
