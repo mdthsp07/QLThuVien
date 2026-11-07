@@ -35,8 +35,8 @@ namespace QLThuVien
             }
             catch (Exception ex)
             {
-                dangNapCombo = false;
-                MessageBox.Show("Không tải được dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string loiChiTiet = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+                MessageBox.Show("Lỗi in báo cáo: " + loiChiTiet, "Lỗi");
             }
         }
 

@@ -15,6 +15,12 @@ namespace QLThuVien.Repositories
         {
             return db.Saches.FirstOrDefault(s => s.MaSach == maSach);
         }
+        public Dictionary<string, int> GetThongKeSachTheoTheLoai()
+        {
+            return db.Saches
+                .GroupBy(s => s.TheLoai.TenTheLoai)
+                .ToDictionary(g => g.Key, g => g.Count());
+        }
 
         /// <summary>Tìm sách theo tên / tác giả, lọc theo thể loại (null = tất cả).</summary>
         public List<SachView> TimKiem(string tuKhoa, int? maTheLoai)

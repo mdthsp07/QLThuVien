@@ -30,6 +30,8 @@ namespace QLThuVien
             { "menuTraSach", "Lập phiếu mượn" },
             { "menuDatTruoc", "Lập phiếu mượn" },
             { "menuQuanLyPhat", "Lập phiếu mượn" },
+            { "menuThongKe", "Báo cáo - Thống kê" },
+            { "menuBieuDo", "Báo cáo - Thống kê" },
             { "menuBaoCao", "Báo cáo - Thống kê" }
         };
 
@@ -121,6 +123,16 @@ namespace QLThuVien
         {
             frmRoleManagement frm = new frmRoleManagement();
             frm.ShowDialog();
+        }
+
+        private void menuBieuDo_Click(object sender, EventArgs e)
+        {
+            new frmChartDashboard().ShowDialog();
+        }
+
+        private void menuBaoCao_Click(object sender, EventArgs e)
+        {
+            new frmReportPhieuMuon().ShowDialog();
         }
     }
 }

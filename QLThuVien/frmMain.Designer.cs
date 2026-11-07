@@ -32,11 +32,9 @@
             this.menuHeThong = new System.Windows.Forms.ToolStripMenuItem();
             this.menuDoiMatKhau = new System.Windows.Forms.ToolStripMenuItem();
             this.menuDangXuat = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuDanhMuc = new System.Windows.Forms.ToolStripMenuItem();
             this.menuQuanLySach = new System.Windows.Forms.ToolStripMenuItem();
             this.menuQuanLyDocGia = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuQuanLyNguoiDung = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuQuanLyVaiTro = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuDanhMuc = new System.Windows.Forms.ToolStripMenuItem();
             this.menuQuanLyTheLoai = new System.Windows.Forms.ToolStripMenuItem();
             this.menuQuanLyNhaXuatBan = new System.Windows.Forms.ToolStripMenuItem();
             this.menuNghiepVu = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,6 +42,11 @@
             this.menuTraSach = new System.Windows.Forms.ToolStripMenuItem();
             this.menuDatTruoc = new System.Windows.Forms.ToolStripMenuItem();
             this.menuQuanLyPhat = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuQuanLyNguoiDung = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuQuanLyVaiTro = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuThongKe = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBieuDo = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBaoCao = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,10 +58,11 @@
             this.menuDanhMuc,
             this.menuNghiepVu,
             this.menuQuanLyNguoiDung,
-            this.menuQuanLyVaiTro});
+            this.menuQuanLyVaiTro,
+            this.menuThongKe});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(856, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -94,34 +98,34 @@
             this.menuQuanLyTheLoai,
             this.menuQuanLyNhaXuatBan});
             this.menuDanhMuc.Name = "menuDanhMuc";
-            this.menuDanhMuc.Size = new System.Drawing.Size(88, 24);
+            this.menuDanhMuc.Size = new System.Drawing.Size(90, 24);
             this.menuDanhMuc.Text = "Danh mục";
             // 
             // menuQuanLySach
             // 
             this.menuQuanLySach.Name = "menuQuanLySach";
-            this.menuQuanLySach.Size = new System.Drawing.Size(224, 26);
+            this.menuQuanLySach.Size = new System.Drawing.Size(234, 26);
             this.menuQuanLySach.Text = "Quản lý Sách";
             this.menuQuanLySach.Click += new System.EventHandler(this.menuQuanLySach_Click);
             // 
             // menuQuanLyDocGia
             // 
             this.menuQuanLyDocGia.Name = "menuQuanLyDocGia";
-            this.menuQuanLyDocGia.Size = new System.Drawing.Size(224, 26);
+            this.menuQuanLyDocGia.Size = new System.Drawing.Size(234, 26);
             this.menuQuanLyDocGia.Text = "Quản lý Độc giả";
             this.menuQuanLyDocGia.Click += new System.EventHandler(this.menuQuanLyDocGia_Click);
             // 
             // menuQuanLyTheLoai
             // 
             this.menuQuanLyTheLoai.Name = "menuQuanLyTheLoai";
-            this.menuQuanLyTheLoai.Size = new System.Drawing.Size(224, 26);
+            this.menuQuanLyTheLoai.Size = new System.Drawing.Size(234, 26);
             this.menuQuanLyTheLoai.Text = "Quản lý Thể loại";
             this.menuQuanLyTheLoai.Click += new System.EventHandler(this.menuQuanLyTheLoai_Click);
             // 
             // menuQuanLyNhaXuatBan
             // 
             this.menuQuanLyNhaXuatBan.Name = "menuQuanLyNhaXuatBan";
-            this.menuQuanLyNhaXuatBan.Size = new System.Drawing.Size(224, 26);
+            this.menuQuanLyNhaXuatBan.Size = new System.Drawing.Size(234, 26);
             this.menuQuanLyNhaXuatBan.Text = "Quản lý Nhà xuất bản";
             this.menuQuanLyNhaXuatBan.Click += new System.EventHandler(this.menuQuanLyNhaXuatBan_Click);
             // 
@@ -133,34 +137,34 @@
             this.menuDatTruoc,
             this.menuQuanLyPhat});
             this.menuNghiepVu.Name = "menuNghiepVu";
-            this.menuNghiepVu.Size = new System.Drawing.Size(93, 24);
+            this.menuNghiepVu.Size = new System.Drawing.Size(91, 24);
             this.menuNghiepVu.Text = "Nghiệp vụ";
             // 
             // menuLapPhieuMuon
             // 
             this.menuLapPhieuMuon.Name = "menuLapPhieuMuon";
-            this.menuLapPhieuMuon.Size = new System.Drawing.Size(224, 26);
+            this.menuLapPhieuMuon.Size = new System.Drawing.Size(200, 26);
             this.menuLapPhieuMuon.Text = "Lập phiếu mượn";
             this.menuLapPhieuMuon.Click += new System.EventHandler(this.menuLapPhieuMuon_Click);
             // 
             // menuTraSach
             // 
             this.menuTraSach.Name = "menuTraSach";
-            this.menuTraSach.Size = new System.Drawing.Size(224, 26);
+            this.menuTraSach.Size = new System.Drawing.Size(200, 26);
             this.menuTraSach.Text = "Trả sách";
             this.menuTraSach.Click += new System.EventHandler(this.menuTraSach_Click);
             // 
             // menuDatTruoc
             // 
             this.menuDatTruoc.Name = "menuDatTruoc";
-            this.menuDatTruoc.Size = new System.Drawing.Size(224, 26);
+            this.menuDatTruoc.Size = new System.Drawing.Size(200, 26);
             this.menuDatTruoc.Text = "Đặt trước sách";
             this.menuDatTruoc.Click += new System.EventHandler(this.menuDatTruoc_Click);
             // 
             // menuQuanLyPhat
             // 
             this.menuQuanLyPhat.Name = "menuQuanLyPhat";
-            this.menuQuanLyPhat.Size = new System.Drawing.Size(224, 26);
+            this.menuQuanLyPhat.Size = new System.Drawing.Size(200, 26);
             this.menuQuanLyPhat.Text = "Quản lý phạt";
             this.menuQuanLyPhat.Click += new System.EventHandler(this.menuQuanLyPhat_Click);
             // 
@@ -178,11 +182,34 @@
             this.menuQuanLyVaiTro.Text = "Quản lý Phân quyền";
             this.menuQuanLyVaiTro.Click += new System.EventHandler(this.menuQuanLyVaiTro_Click);
             // 
+            // menuThongKe
+            // 
+            this.menuThongKe.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuBieuDo,
+            this.menuBaoCao});
+            this.menuThongKe.Name = "menuThongKe";
+            this.menuThongKe.Size = new System.Drawing.Size(84, 24);
+            this.menuThongKe.Text = "Thống kê";
+            // 
+            // menuBieuDo
+            // 
+            this.menuBieuDo.Name = "menuBieuDo";
+            this.menuBieuDo.Size = new System.Drawing.Size(146, 26);
+            this.menuBieuDo.Text = "Biểu đồ";
+            this.menuBieuDo.Click += new System.EventHandler(this.menuBieuDo_Click);
+            // 
+            // menuBaoCao
+            // 
+            this.menuBaoCao.Name = "menuBaoCao";
+            this.menuBaoCao.Size = new System.Drawing.Size(146, 26);
+            this.menuBaoCao.Text = "Báo cáo";
+            this.menuBaoCao.Click += new System.EventHandler(this.menuBaoCao_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(856, 450);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
@@ -213,5 +240,8 @@
         private System.Windows.Forms.ToolStripMenuItem menuTraSach;
         private System.Windows.Forms.ToolStripMenuItem menuDatTruoc;
         private System.Windows.Forms.ToolStripMenuItem menuQuanLyPhat;
+        private System.Windows.Forms.ToolStripMenuItem menuThongKe;
+        private System.Windows.Forms.ToolStripMenuItem menuBieuDo;
+        private System.Windows.Forms.ToolStripMenuItem menuBaoCao;
     }
 }

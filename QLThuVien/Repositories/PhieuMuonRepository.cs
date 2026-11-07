@@ -19,50 +19,23 @@ namespace QLThuVien.Repositories
         /// </summary>
         public bool LapPhieuMuon(PhieuMuon phieu, List<ChiTietMuon> chiTiets)
         {
-            if (chiTiets == null || chiTiets.Count == 0)
-                throw new Exception("Lỗi lập phiếu: Phiếu mượn phải có ít nhất một cuốn sách.");
-
-            // Sử dụng TransactionScope để đảm bảo toàn vẹn dữ liệu
             using (var scope = new TransactionScope())
             {
                 try
                 {
-                    // 0. Kiểm tra độc giả
-                    bool coDocGia = (from d in db.DocGias where d.MaDocGia == phieu.MaDocGia select d).Any();
-                    if (!coDocGia) throw new Exception("Độc giả không tồn tại.");
-
-                    int dangMuon = (from pm in db.PhieuMuons
-                                    join ct in db.ChiTietMuons on pm.MaPhieu equals ct.MaPhieu
-                                    where pm.MaDocGia == phieu.MaDocGia && pm.TrangThai == TrangThai.DangMuon
-                                    select ct.SoLuong).Sum() ?? 0;
-                    int muonThem = chiTiets.Sum(ct => ct.SoLuong ?? 0);
-                    if (dangMuon + muonThem > SoSachToiDa)
-                        throw new Exception($"Mỗi độc giả chỉ được mượn tối đa {SoSachToiDa} cuốn (đang mượn {dangMuon}).");
-
-                    if (string.IsNullOrEmpty(phieu.TrangThai)) phieu.TrangThai = TrangThai.DangMuon;
-                    if (phieu.NgayMuon == null) phieu.NgayMuon = DateTime.Today;
-                    if (phieu.HanTra == null) phieu.HanTra = phieu.NgayMuon.Value.AddDays(SoNgayMuonMacDinh);
-                    if (phieu.HanTra < phieu.NgayMuon) throw new Exception("Hạn trả phải sau ngày mượn.");
-
-                    // 1. Tạo phiếu mượn trước
                     db.PhieuMuons.InsertOnSubmit(phieu);
-                    db.SubmitChanges(); // Lúc này phieu.MaPhieu tự động có giá trị
+                    db.SubmitChanges(); 
 
                     foreach (var ct in chiTiets)
                     {
-                        if ((ct.SoLuong ?? 0) <= 0) throw new Exception("Số lượng mượn phải lớn hơn 0.");
-
-                        // 2. Kiểm tra tồn kho
                         var sach = db.Saches.FirstOrDefault(s => s.MaSach == ct.MaSach);
                         if (sach == null || sach.SoLuongCon < ct.SoLuong)
                         {
                             throw new Exception($"Sách '{sach?.TenSach}' không đủ số lượng tồn kho!");
                         }
 
-                        // 3. Trừ tồn kho
                         sach.SoLuongCon -= ct.SoLuong;
 
-                        // 4. Thêm chi tiết
                         ct.MaPhieu = phieu.MaPhieu;
                         db.ChiTietMuons.InsertOnSubmit(ct);
 
@@ -75,13 +48,12 @@ namespace QLThuVien.Repositories
                         foreach (var dt in datTruocs) dt.TrangThai = TrangThai.DaNhan;
                     }
 
-                    db.SubmitChanges(); // Lưu tất cả thay đổi
-                    scope.Complete();   // Xác nhận hoàn tất (Commit)
+                    db.SubmitChanges(); 
+                    scope.Complete();   
                     return true;
                 }
                 catch (Exception ex)
                 {
-                    // Nếu có lỗi, scope.Complete() không được gọi -> Tự động Rollback
                     throw new Exception("Lỗi lập phiếu: " + ex.Message);
                 }
             }
@@ -211,6 +183,21 @@ namespace QLThuVien.Repositories
                     throw new Exception("Lỗi trả sách: " + ex.Message);
                 }
             }
+        }
+
+        public dynamic LayDuLieuBaoCaoPhieuMuon()
+        {
+            var data = from pm in db.PhieuMuons
+                       join dg in db.DocGias on pm.MaDocGia equals dg.MaDocGia
+                       select new
+                       {
+                           MaPhieu = pm.MaPhieu,
+                           TenDocGia = dg.HoTen,
+                           NgayMuon = pm.NgayMuon,
+                           NgayTra = pm.HanTra,
+                           TrangThai = pm.TrangThai
+                       };
+            return data.ToList();
         }
     }
 }
