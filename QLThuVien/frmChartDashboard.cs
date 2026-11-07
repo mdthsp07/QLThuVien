@@ -28,12 +28,12 @@ namespace QLThuVien
                 }
 
               
-                chartDuong.Series[0].ChartType = SeriesChartType.Line;
+                
                 chartDuong.Series[0].Points.Clear();
 
-                chartDuong.Series[0].Name = "Tổng tiền phạt (VNĐ)";
-                chartDuong.Titles.Clear();
-                chartDuong.Titles.Add("Biểu đồ tổng tiền phạt theo tháng");
+                
+                
+                
                 chartDuong.Legends[0].Enabled = false;
 
                 string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["QLThuVienConn"].ConnectionString;
@@ -56,10 +56,9 @@ namespace QLThuVien
                 }
 
                 
-                chartTron.Series[0].ChartType = SeriesChartType.Pie;
+                
                 chartTron.Series[0].Points.Clear();
-                chartTron.Titles.Clear();
-                chartTron.Titles.Add("Tỷ lệ sách theo thể loại");
+                
                 foreach (var item in data)
                 {
                     chartTron.Series[0].Points.AddXY(item.Key, item.Value);

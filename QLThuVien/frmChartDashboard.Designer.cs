@@ -31,13 +31,15 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.chartTheLoai = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartDuong = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartTron = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -68,11 +70,11 @@
             this.chartTheLoai.Size = new System.Drawing.Size(784, 281);
             this.chartTheLoai.TabIndex = 0;
             this.chartTheLoai.Text = "Chart";
-            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold);
-            title1.ForeColor = System.Drawing.Color.SteelBlue;
-            title1.Name = "Title1";
-            title1.Text = "Thống kê số lượng sách theo thể loại";
-            this.chartTheLoai.Titles.Add(title1);
+            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold);
+            title3.ForeColor = System.Drawing.Color.MediumSlateBlue;
+            title3.Name = "Title1";
+            title3.Text = "Thống kê số lượng sách theo thể loại";
+            this.chartTheLoai.Titles.Add(title3);
             this.chartTheLoai.Click += new System.EventHandler(this.chartTheLoai_Click);
             // 
             // chartDuong
@@ -85,12 +87,18 @@
             this.chartDuong.Location = new System.Drawing.Point(3, 290);
             this.chartDuong.Name = "chartDuong";
             series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series2.Legend = "Legend1";
-            series2.Name = "Series1";
+            series2.Name = "Tổng tiền phạt (VNĐ)";
             this.chartDuong.Series.Add(series2);
             this.chartDuong.Size = new System.Drawing.Size(389, 282);
             this.chartDuong.TabIndex = 1;
             this.chartDuong.Text = "chart1";
+            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title2.ForeColor = System.Drawing.Color.SteelBlue;
+            title2.Name = "Title1";
+            title2.Text = "Biểu đồ tổng tiền phạt theo tháng";
+            this.chartDuong.Titles.Add(title2);
             // 
             // chartTron
             // 
@@ -102,12 +110,18 @@
             this.chartTron.Location = new System.Drawing.Point(398, 290);
             this.chartTron.Name = "chartTron";
             series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartTron.Series.Add(series1);
             this.chartTron.Size = new System.Drawing.Size(389, 282);
             this.chartTron.TabIndex = 2;
             this.chartTron.Text = "chart1";
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
+            title1.ForeColor = System.Drawing.Color.Gold;
+            title1.Name = "Title1";
+            title1.Text = "Tỷ lệ sách theo thể loại";
+            this.chartTron.Titles.Add(title1);
             // 
             // tableLayoutPanel1
             // 
