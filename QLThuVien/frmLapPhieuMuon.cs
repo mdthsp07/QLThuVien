@@ -148,6 +148,14 @@ namespace QLThuVien
             foreach (var item in gio)
                 if (item.MaSach == sach.MaSach) daCo = item;
 
+            int tongSoLuongTrongGio = 0;
+            foreach (var item in gio) tongSoLuongTrongGio += item.SoLuong;
+            if (tongSoLuongTrongGio + soLuong > PhieuMuonRepository.SoSachToiDa)
+            {
+                MessageBox.Show($"Mỗi phiếu chỉ được mượn tối đa {PhieuMuonRepository.SoSachToiDa} cuốn sách!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             int tongSauKhiThem = (daCo?.SoLuong ?? 0) + soLuong;
             if (tongSauKhiThem > (sach.SoLuongCon ?? 0))
             {
@@ -205,6 +213,16 @@ namespace QLThuVien
                 if (no > 0)
                 {
                     MessageBox.Show($"Độc giả còn nợ phạt {no:N0} đ, vui lòng thanh toán trước khi mượn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                int dangMuon = docGiaRepo.SoSachDangMuon(maDocGia);
+                int sapMuon = 0;
+                foreach (var item in gio) sapMuon += item.SoLuong;
+
+                if (dangMuon + sapMuon > PhieuMuonRepository.SoSachToiDa)
+                {
+                    MessageBox.Show($"Độc giả này đang mượn {dangMuon} cuốn. Phiếu này thêm {sapMuon} cuốn. Tổng cộng vượt quá giới hạn {PhieuMuonRepository.SoSachToiDa} cuốn!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
